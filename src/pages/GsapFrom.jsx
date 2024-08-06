@@ -1,6 +1,18 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
 const GsapFrom = () => {
   // TODO: Implement the gsap.from() method
-
+  useGSAP(()=>{
+    gsap.from("#green-box", {
+      x: 250,//When we use the .from method, actually the picture starts in the position 250 and go to the position 0. It does the oposite of gsap.to.
+      repeat: -1,//Make it be a loop
+      yoyo: true,//Make the animation reverse itself
+      rotation: 360,//Define the degrees of rotation of the picture
+      duration: 2,//Define the duration of the animation in seconds
+      ease: 'power1.inOut'//Define a effect in the animation
+    })
+  },[])
   return (
     <main>
       <h1>GsapFrom</h1>

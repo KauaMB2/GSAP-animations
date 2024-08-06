@@ -1,5 +1,25 @@
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
 const GsapText = () => {
   // TODO: Implement gsap text animation
+  useGSAP(()=>{
+    gsap.to('#text',{
+      ease: 'power1.inOut',//Define a effect for the animation
+      opacity: 1,//Define a opacity of the text
+      y:0,// Define the Y position
+    })
+    gsap.fromTo('.para', {
+      opacity: 0,//Define the initial opacity of the text
+      y:20,// Define the initial y position
+    },
+    {
+      opacity: 1,//Set the final opacity of the text
+      y:0,//Set the final y position
+      delay: 2,// Set a delay in seconds to load the text
+      stagger: 0.8//Set a delay to load each text
+    })
+  },[])
 
   return (
     <main>
